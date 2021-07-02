@@ -22,12 +22,14 @@ class CSV_JSON(Converter):
         print(self.data_csv)
 
     def read_header(self):
+
         self.header_keys = self.data_csv[0].split(',')
 
     #index - poss cell(column)
     def get_data_column(self, index):
         some_dt = {}
         for line in range(1, len(self.data_csv)):
+            print(line)
             some_dt[line] = self.data_csv[line].split(',')[index]
 
         #print(some_dt)
@@ -52,7 +54,7 @@ class CSV_JSON(Converter):
             json.dump(self.data_json, fl)
 
 
-c = CSV_JSON('addresses.csv')
+c = CSV_JSON('letter_frequency.csv')
 c.show_result()
 
 

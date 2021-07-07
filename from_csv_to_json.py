@@ -78,7 +78,6 @@ class CSV_JSON(Converter):
 
         self.seek_data_cell(line)
 
-
     def get_header_cell(self, index):
         return self.data_global[0][index]
 
@@ -94,7 +93,6 @@ class CSV_JSON(Converter):
         with open(f"{self.nmcsv.split('.')[0]}.json", "w") as _json:
             _json.write(str(self.out_data_json))
 
-
     def start(self):
         rows = self.data_csv
         for row in rows:
@@ -104,6 +102,11 @@ class CSV_JSON(Converter):
             self.data_cell = []
 
         self.record_to_file()
+
+    @property
+    def getter_data_global(self):
+        return self. data_global
+
 
 
 

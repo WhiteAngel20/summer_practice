@@ -1,5 +1,4 @@
 from converter_file_format import Converter
-from json import dumps
 
 class CSV_JSON(Converter):
 
@@ -92,7 +91,7 @@ class CSV_JSON(Converter):
                 data_cell[self.get_header_cell(index=j)] = self.data_global[i][j]
             self.out_data_json.append(data_cell)
 
-        with open("out.json", "w") as _json:
+        with open(f"{self.nmcsv.split('.')[0]}.json", "w") as _json:
             _json.write(str(self.out_data_json))
 
 
